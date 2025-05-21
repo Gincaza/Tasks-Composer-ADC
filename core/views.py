@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from .models import Task
 
@@ -26,6 +26,12 @@ def tasks(request):
 
     tasks_list = Task.objects.all()
     return render(request, 'tasks.html', {'tasks': tasks_list})
+
+def delete_task(request, task_id):
+    if request.method == 'POST':
+        task = get_object_or_404(Task, id=task_id)
+        task.delete()
+        return redirect('tasks')
 
 def rewards(request):
     return render(request, 'rewards.html')

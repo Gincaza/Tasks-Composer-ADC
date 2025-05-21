@@ -25,6 +25,7 @@
                 <td>{{ task.due_date }}</td>
                 <td>
                     <button class="btn btn-sm btn-warning editTaskButton" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-description="{{ task.description }}" data-task-due-date="{{ task.due_date }}">Editar</button>
+                    <button class="btn btn-sm btn-danger deleteTaskButton" data-task-id="{{ task.id }}">Excluir</button>
                 </td>
             </tr>
             {% endfor %}
@@ -75,6 +76,25 @@
     </form>
 </div>
 
+<!-- Modal de confirmação de exclusão -->
+<div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteTaskModalLabel">Confirmação de Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja excluir esta tarefa?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function hideAllAndShowForm(formId) {
         document.getElementById('taskContent').style.display = 'none';
@@ -107,6 +127,34 @@
 
             hideAllAndShowForm('editTaskForm');
         });
+    });
+
+    let taskIdToDelete = null;
+
+    document.querySelectorAll('.deleteTaskButton').forEach(button => {
+        button.addEventListener('click', function() {
+            taskIdToDelete = this.getAttribute('data-task-id');
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteTaskModal'));
+            deleteModal.show();
+        });
+    });
+
+    document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+        if (taskIdToDelete) {
+            fetch(`/tasks/${taskIdToDelete}/delete/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Erro ao excluir a tarefa.');
+                }
+            });
+        }
     });
 </script>
 {% endblock %}
