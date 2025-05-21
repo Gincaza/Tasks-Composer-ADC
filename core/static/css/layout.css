@@ -23,3 +23,23 @@ body {
 header {
     z-index: 1030;
 }
+
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    .collapse {
+        display: block;
+    }
+}

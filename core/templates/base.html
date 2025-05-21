@@ -36,8 +36,13 @@
 
     <div class="content-wrapper">
         <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center fixed-top">
-            <h1 class="m-0">Habity</h1>
             <div class="d-flex align-items-center">
+                <button class="btn btn-primary d-md-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <img src="{% static 'images/hamburger.svg' %}" alt="Menu" class="me-2" style="width: 20px; height: 20px;">
+                </button>
+                <h1 class="m-0">Task Composer</h1>
+            </div>
+            <div class="d-none d-md-flex align-items-center">
                 <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-circle me-2">
                 <span class="me-3">Usuário Mock</span>
                 <a href="/settings/" class="text-white text-decoration-none">
@@ -45,6 +50,62 @@
                 </a>
             </div>
         </header>
+
+        <div class="collapse d-md-none" id="mobileMenu">
+            <ul class="list-unstyled bg-light p-3">
+                <li class="mb-1">
+                    <a href="/dashboard/" class="d-flex align-items-center text-decoration-none p-2">
+                        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="/tasks/" class="d-flex align-items-center text-decoration-none p-2">
+                        <i class="bi bi-list-check me-2"></i> Tarefas
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="/rewards/" class="d-flex align-items-center text-decoration-none p-2">
+                        <i class="bi bi-gift me-2"></i> Recompensas
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="/settings/" class="d-flex align-items-center text-decoration-none p-2">
+                        <i class="bi bi-gear me-2"></i> Configurações
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Configurações</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-unstyled">
+                    <li class="mb-1">
+                        <a href="/dashboard/" class="d-flex align-items-center text-decoration-none p-2">
+                            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="/tasks/" class="d-flex align-items-center text-decoration-none p-2">
+                            <i class="bi bi-list-check me-2"></i> Tarefas
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="/rewards/" class="d-flex align-items-center text-decoration-none p-2">
+                            <i class="bi bi-gift me-2"></i> Recompensas
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="/settings/" class="d-flex align-items-center text-decoration-none p-2">
+                            <i class="bi bi-gear me-2"></i> Configurações
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div>
             {% block content %}
