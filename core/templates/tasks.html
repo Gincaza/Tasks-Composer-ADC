@@ -5,6 +5,12 @@
 <div id="taskContent">
     <h2>Tarefas</h2>
 
+    {% if not tasks.exists %}
+    <div class="text-center my-5">
+        <p class="lead">Você ainda não tem tarefas. Adicione a primeira agora!</p>
+        <button class="btn btn-primary" id="addTaskButton">Adicionar Nova Tarefa</button>
+    </div>
+    {% else %}
     <!-- Botão para adicionar nova tarefa -->
     <button class="btn btn-primary mb-3" id="addTaskButton">Adicionar Nova Tarefa</button>
 
@@ -65,6 +71,7 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 </div>
 
 <!-- Formulário para adicionar nova tarefa -->
