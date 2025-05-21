@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    margin-top: 80px;
+    flex: 1;
+}
+
+header {
+    z-index: 1030;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    .collapse {
+        display: block;
+    }
+}
