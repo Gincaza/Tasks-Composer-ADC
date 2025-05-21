@@ -3,9 +3,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 from .models import Task
+from django.db.models import Count
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    pending_tasks_count = Task.objects.filter(completed=False).count()
+    return render(request, 'dashboard.html', {'pending_tasks_count': pending_tasks_count})
 
 @csrf_exempt
 def tasks(request):

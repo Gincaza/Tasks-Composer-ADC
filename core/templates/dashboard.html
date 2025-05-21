@@ -3,4 +3,9 @@
 {% block content %}
 <h2>Dashboard</h2>
 <p>Bem-vindo ao Dashboard!</p>
+
+<div class="task-summary">
+    <h3>Resumo de Tarefas</h3>
+    <p>Tarefas Pendentes: {{ pending_tasks_count }}</p>
+</div>
 {% endblock %}
