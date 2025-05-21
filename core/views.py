@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
 from .models import Task
 
 def dashboard(request):
@@ -32,6 +34,15 @@ def delete_task(request, task_id):
         task = get_object_or_404(Task, id=task_id)
         task.delete()
         return redirect('tasks')
+
+def mark_task_completed(request, task_id):
+    if request.method == 'POST':
+        task = get_object_or_404(Task, id=task_id)
+        data = json.loads(request.body)
+        task.completed = data.get('completed', False)
+        task.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 def rewards(request):
     return render(request, 'rewards.html')

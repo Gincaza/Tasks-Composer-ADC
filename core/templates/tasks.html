@@ -8,9 +8,11 @@
     <!-- Botão para adicionar nova tarefa -->
     <button class="btn btn-primary mb-3" id="addTaskButton">Adicionar Nova Tarefa</button>
 
+    <h3>Tarefas Pendentes</h3>
     <table class="table">
         <thead>
             <tr>
+                <th>Concluída</th>
                 <th>Título</th>
                 <th>Descrição</th>
                 <th>Data de Vencimento</th>
@@ -19,7 +21,9 @@
         </thead>
         <tbody>
             {% for task in tasks %}
+            {% if not task.completed %}
             <tr>
+                <td><input type="checkbox" class="markCompleted" data-task-id="{{ task.id }}"></td>
                 <td>{{ task.title }}</td>
                 <td>{{ task.description|default:"-" }}</td>
                 <td>{{ task.due_date }}</td>
@@ -28,6 +32,36 @@
                     <button class="btn btn-sm btn-danger deleteTaskButton" data-task-id="{{ task.id }}">Excluir</button>
                 </td>
             </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Tarefas Concluídas</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concluída</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Data de Vencimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            {% if task.completed %}
+            <tr>
+                <td><input type="checkbox" class="markCompleted" data-task-id="{{ task.id }}" checked></td>
+                <td><s>{{ task.title }}</s></td>
+                <td><s>{{ task.description|default:"-" }}</s></td>
+                <td><s>{{ task.due_date }}</s></td>
+                <td>
+                    <button class="btn btn-sm btn-warning editTaskButton" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-description="{{ task.description }}" data-task-due-date="{{ task.due_date }}">Editar</button>
+                    <button class="btn btn-sm btn-danger deleteTaskButton" data-task-id="{{ task.id }}">Excluir</button>
+                </td>
+            </tr>
+            {% endif %}
             {% endfor %}
         </tbody>
     </table>
@@ -155,6 +189,29 @@
                 }
             });
         }
+    });
+
+    document.querySelectorAll('.markCompleted').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const taskId = this.getAttribute('data-task-id');
+            const isCompleted = this.checked;
+
+            fetch(`/tasks/${taskId}/mark_completed/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ completed: isCompleted })
+            })
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Erro ao atualizar o status da tarefa.');
+                }
+            });
+        });
     });
 </script>
 {% endblock %}
