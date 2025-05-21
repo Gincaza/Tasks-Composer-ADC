@@ -2,5 +2,22 @@
 
 {% block content %}
 <h2>Tarefas</h2>
-<p>Gerencie suas tarefas aqui.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data de Vencimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description|default:"-" }}</td>
+            <td>{{ task.due_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
