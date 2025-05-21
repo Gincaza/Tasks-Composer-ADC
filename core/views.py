@@ -7,7 +7,11 @@ from django.db.models import Count
 
 def dashboard(request):
     pending_tasks_count = Task.objects.filter(completed=False).count()
-    return render(request, 'dashboard.html', {'pending_tasks_count': pending_tasks_count})
+    completed_tasks_count = Task.objects.filter(completed=True).count()
+    return render(request, 'dashboard.html', {
+        'pending_tasks_count': pending_tasks_count,
+        'completed_tasks_count': completed_tasks_count
+    })
 
 @csrf_exempt
 def tasks(request):
