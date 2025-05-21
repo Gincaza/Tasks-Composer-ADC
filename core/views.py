@@ -4,13 +4,16 @@ from django.http import JsonResponse
 import json
 from .models import Task
 from django.db.models import Count
+from django.utils import timezone
 
 def dashboard(request):
     pending_tasks_count = Task.objects.filter(completed=False).count()
     completed_tasks_count = Task.objects.filter(completed=True).count()
+    overdue_tasks = Task.objects.filter(completed=False, due_date__lt=timezone.now())
     return render(request, 'dashboard.html', {
         'pending_tasks_count': pending_tasks_count,
-        'completed_tasks_count': completed_tasks_count
+        'completed_tasks_count': completed_tasks_count,
+        'overdue_tasks': overdue_tasks
     })
 
 @csrf_exempt

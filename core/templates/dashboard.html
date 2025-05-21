@@ -9,4 +9,17 @@
     <p>Tarefas Pendentes: {{ pending_tasks_count }}</p>
     <p>Tarefas Concluídas: {{ completed_tasks_count }}</p>
 </div>
+
+<div class="overdue-tasks">
+    <h3>Tarefas Vencidas</h3>
+    {% if overdue_tasks.exists %}
+        <ul>
+            {% for task in overdue_tasks %}
+                <li>{{ task.title }} - Vencida em {{ task.due_date }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há tarefas vencidas no momento.</p>
+    {% endif %}
+</div>
 {% endblock %}
