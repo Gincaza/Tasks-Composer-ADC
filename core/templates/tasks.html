@@ -1,10 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Tarefas</h2>
 
-<!-- Botão para adicionar nova tarefa -->
-<button class="btn btn-primary mb-3" id="addTaskButton">Adicionar Nova Tarefa</button>
+<div id="taskContent">
+    <h2>Tarefas</h2>
+
+    <!-- Botão para adicionar nova tarefa -->
+    <button class="btn btn-primary mb-3" id="addTaskButton">Adicionar Nova Tarefa</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Data de Vencimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description|default:"-" }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning editTaskButton" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-description="{{ task.description }}" data-task-due-date="{{ task.due_date }}">Editar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 <!-- Formulário para adicionar nova tarefa -->
 <div id="addTaskForm" class="mb-3" style="display: none;">
@@ -23,38 +49,64 @@
             <input type="date" class="form-control" id="due_date" name="due_date" required>
         </div>
         <button type="submit" class="btn btn-success">Salvar</button>
-        <button type="button" class="btn btn-secondary" id="cancelTaskButton">Cancelar</button>
+        <button type="button" class="btn btn-secondary cancelTaskButton">Cancelar</button>
     </form>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Data de Vencimento</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td>{{ task.title }}</td>
-            <td>{{ task.description|default:"-" }}</td>
-            <td>{{ task.due_date }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<!-- Formulário para editar tarefa -->
+<div id="editTaskForm" class="mb-3" style="display: none;">
+    <form method="post" action="{% url 'tasks' %}">
+        {% csrf_token %}
+        <input type="hidden" id="editTaskId" name="task_id">
+        <div class="mb-3">
+            <label for="editTitle" class="form-label">Título</label>
+            <input type="text" class="form-control" id="editTitle" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="editDescription" class="form-label">Descrição</label>
+            <textarea class="form-control" id="editDescription" name="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="editDueDate" class="form-label">Data de Vencimento</label>
+            <input type="date" class="form-control" id="editDueDate" name="due_date" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-secondary cancelTaskButton">Cancelar</button>
+    </form>
+</div>
 
 <script>
+    function hideAllAndShowForm(formId) {
+        document.getElementById('taskContent').style.display = 'none';
+        document.getElementById(formId).style.display = 'block';
+    }
+
     document.getElementById('addTaskButton').addEventListener('click', function() {
-        document.getElementById('addTaskForm').style.display = 'block';
-        this.style.display = 'none';
+        hideAllAndShowForm('addTaskForm');
     });
 
-    document.getElementById('cancelTaskButton').addEventListener('click', function() {
-        document.getElementById('addTaskForm').style.display = 'none';
-        document.getElementById('addTaskButton').style.display = 'block';
+    document.querySelectorAll('.cancelTaskButton').forEach(button => {
+        button.addEventListener('click', function () {
+            document.getElementById('addTaskForm').style.display = 'none';
+            document.getElementById('editTaskForm').style.display = 'none';
+            document.getElementById('taskContent').style.display = 'block';
+        });
+    });
+
+    document.querySelectorAll('.editTaskButton').forEach(button => {
+        button.addEventListener('click', function() {
+            const taskId = this.getAttribute('data-task-id');
+            const taskTitle = this.getAttribute('data-task-title');
+            const taskDescription = this.getAttribute('data-task-description');
+            const taskDueDate = this.getAttribute('data-task-due-date');
+
+            document.getElementById('editTaskId').value = taskId;
+            document.getElementById('editTitle').value = taskTitle;
+            document.getElementById('editDescription').value = taskDescription;
+            document.getElementById('editDueDate').value = taskDueDate;
+
+            hideAllAndShowForm('editTaskForm');
+        });
     });
 </script>
 {% endblock %}
