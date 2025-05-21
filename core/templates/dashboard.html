@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h2>Dashboard</h2>
@@ -6,8 +7,13 @@
 
 <div class="task-summary">
     <h3>Resumo de Tarefas</h3>
-    <p>Tarefas Pendentes: {{ pending_tasks_count }}</p>
-    <p>Tarefas Concluídas: {{ completed_tasks_count }}</p>
+    <canvas id="taskChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.pendingTasksCount = "{{ pending_tasks_count|default:0 }}";
+        window.completedTasksCount = "{{ completed_tasks_count|default:0 }}";
+    </script>
+    <script src="{% static 'js/dashboard.js' %}"></script>
 </div>
 
 <div class="overdue-tasks">
