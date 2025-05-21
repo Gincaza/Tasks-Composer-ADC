@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    margin-top: 80px;
+}
+
+header {
+    z-index: 1030;
+}
