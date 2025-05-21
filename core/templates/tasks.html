@@ -2,6 +2,31 @@
 
 {% block content %}
 <h2>Tarefas</h2>
+
+<!-- Botão para adicionar nova tarefa -->
+<button class="btn btn-primary mb-3" id="addTaskButton">Adicionar Nova Tarefa</button>
+
+<!-- Formulário para adicionar nova tarefa -->
+<div id="addTaskForm" class="mb-3" style="display: none;">
+    <form method="post" action="{% url 'tasks' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="due_date" class="form-label">Data de Vencimento</label>
+            <input type="date" class="form-control" id="due_date" name="due_date" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-secondary" id="cancelTaskButton">Cancelar</button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -20,4 +45,16 @@
         {% endfor %}
     </tbody>
 </table>
+
+<script>
+    document.getElementById('addTaskButton').addEventListener('click', function() {
+        document.getElementById('addTaskForm').style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    document.getElementById('cancelTaskButton').addEventListener('click', function() {
+        document.getElementById('addTaskForm').style.display = 'none';
+        document.getElementById('addTaskButton').style.display = 'block';
+    });
+</script>
 {% endblock %}
