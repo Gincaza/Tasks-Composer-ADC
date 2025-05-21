@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('tasks/', views.tasks, name='tasks'),
+    path('tasks/<int:task_id>/delete/', views.delete_task, name='delete_task'),
+    path('tasks/<int:task_id>/mark_completed/', views.mark_task_completed, name='mark_task_completed'),
     path('rewards/', views.rewards, name='rewards'),
     path('settings/', views.settings, name='settings'),
 ]
