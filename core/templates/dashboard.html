@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h2>Dashboard</h2>
 <p>Bem-vindo ao Dashboard!</p>
+
+<div class="task-summary">
+    <h3>Resumo de Tarefas</h3>
+    <canvas id="taskChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.pendingTasksCount = "{{ pending_tasks_count|default:0 }}";
+        window.completedTasksCount = "{{ completed_tasks_count|default:0 }}";
+    </script>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</div>
+
+<div class="overdue-tasks">
+    <h3>Tarefas Vencidas</h3>
+    {% if overdue_tasks.exists %}
+        <ul>
+            {% for task in overdue_tasks %}
+                <li>{{ task.title }} - Vencida em {{ task.due_date }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há tarefas vencidas no momento.</p>
+    {% endif %}
+</div>
+
+<div class="add-task">
+    <a href="/tasks/" class="btn btn-primary">Adicionar Nova Tarefa</a>
+</div>
 {% endblock %}
