@@ -66,3 +66,13 @@ body.dark-theme .bg-light {
 body.dark-theme .border-end {
     border-color: #333333 !important;
 }
+
+/* Estilo para os textos das tabelas em tasks.html */
+body.dark-theme table {
+    color: white;
+}
+
+body.dark-theme table th,
+body.dark-theme table td {
+    color: white;
+}
