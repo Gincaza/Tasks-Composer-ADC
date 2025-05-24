@@ -34,6 +34,11 @@
                     <i class="bi bi-gear me-2"></i> Configurações
                 </a>
             </li>
+            <li class="mb-1">
+                <a href="/logout/" class="d-flex align-items-center text-decoration-none p-2">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -46,8 +51,22 @@
                 <h1 class="m-0">Task Composer</h1>
             </div>
             <div class="d-none d-md-flex align-items-center">
-                <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-circle me-2">
-                <span class="me-3">Usuário Mock</span>
+                {% if user.is_authenticated %}
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                    {% else %}
+                        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Avatar" class="rounded-circle me-2"> -->
+                    {% endif %}
+
+                    {% if user.name %}
+                        <span class="me-3">{{ user.name }}</span>
+                    {% else %}
+                        <span class="me-3">{{ user.username }}</span>
+                    {% endif %}
+                {% else %}
+                    <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-circle me-2">
+                    <span class="me-3">Usuário Mock</span>
+                {% endif %}
                 <a href="/settings/" class="text-white text-decoration-none">
                     <i class="bi bi-gear" style="font-size: 1.5rem;"></i>
                 </a>
@@ -69,6 +88,11 @@
                 <li class="mb-1">
                     <a href="/settings/" class="d-flex align-items-center text-decoration-none p-2">
                         <i class="bi bi-gear me-2"></i> Configurações
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="/logout/" class="d-flex align-items-center text-decoration-none p-2">
+                        <i class="bi bi-box-arrow-right me-2"></i> Logout
                     </a>
                 </li>
             </ul>
@@ -94,6 +118,11 @@
                     <li class="mb-1">
                         <a href="/settings/" class="d-flex align-items-center text-decoration-none p-2">
                             <i class="bi bi-gear me-2"></i> Configurações
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="/logout/" class="d-flex align-items-center text-decoration-none p-2">
+                            <i class="bi bi-box-arrow-right me-2"></i> Logout
                         </a>
                     </li>
                 </ul>
