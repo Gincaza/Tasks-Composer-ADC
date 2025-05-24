@@ -43,3 +43,36 @@ header {
         display: block;
     }
 }
+
+/* Estilos para o tema escuro */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-theme a {
+    color: #bb86fc;
+}
+
+body.dark-theme .btn {
+    background-color: #bb86fc;
+    color: #121212;
+}
+
+body.dark-theme .bg-light {
+    background-color: #1f1f1f !important;
+}
+
+body.dark-theme .border-end {
+    border-color: #333333 !important;
+}
+
+/* Estilo para os textos das tabelas em tasks.html */
+body.dark-theme table {
+    color: white;
+}
+
+body.dark-theme table th,
+body.dark-theme table td {
+    color: white;
+}
