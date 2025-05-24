@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
+from core import views as core_views
 from core import views
 
 urlpatterns = [
@@ -26,4 +28,8 @@ urlpatterns = [
     path('tasks/<int:task_id>/mark_completed/', views.mark_task_completed, name='mark_task_completed'),
     path('settings/', views.settings, name='settings'),
     path('settings/update_user_info/', views.update_user_info, name='update_user_info'),
+    path('', core_views.home, name='home'),
+    path('register/', core_views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
 ]
