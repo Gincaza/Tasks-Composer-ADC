@@ -55,9 +55,6 @@ def mark_task_completed(request, task_id):
         return JsonResponse({'success': True})
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
-def rewards(request):
-    return render(request, 'rewards.html')
-
 def settings(request):
     return render(request, 'settings.html')
 
