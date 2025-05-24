@@ -83,7 +83,16 @@ body.dark-theme table {
 
 body.dark-theme table th,
 body.dark-theme table td {
-    color: white;
+    color: #ffffff;
+}
+
+/* Adicionando estilo para corrigir o texto no modo escuro */
+body.dark-theme .accordion-button {
+    color: #ffffff;
+}
+
+body.dark-theme .accordion-body {
+    color: #ffffff;
 }
 
 /* Adicionando estilo para alinhar o botão com o header */
