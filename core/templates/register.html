@@ -1,0 +1,32 @@
+{% extends base_template %}
+
+{% block content %}
+<div class="register-container">
+    <h2 class="register-title">Registro</h2>
+    <form method="post" class="register-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.non_field_errors }}
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            <small class="form-text text-muted">{{ form.username.help_text }}</small>
+
+            {{ form.name.label_tag }}
+            {{ form.name }}
+
+            {{ form.avatar.label_tag }}
+            {{ form.avatar }}
+
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+        </div>
+        <button type="submit" class="btn btn-primary register-button">Registrar</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="/login/" class="btn btn-secondary">Já tem conta? Faça Login</a>
+    </div>
+</div>
+{% endblock %}
