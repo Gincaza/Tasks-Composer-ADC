@@ -5,6 +5,8 @@ import json
 from .models import Task
 from django.db.models import Count
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def dashboard(request):
     pending_tasks_count = Task.objects.filter(completed=False).count()
@@ -58,3 +60,15 @@ def rewards(request):
 
 def settings(request):
     return render(request, 'settings.html')
+
+@login_required
+def update_user_info(request):
+    if request.method == 'POST':
+        user = request.user
+        user.name = request.POST.get('name', user.name)
+        if 'avatar' in request.FILES:
+            user.avatar = request.FILES['avatar']
+        user.save()
+        messages.success(request, 'Informações atualizadas com sucesso!')
+        return redirect('settings')
+    return redirect('settings')
