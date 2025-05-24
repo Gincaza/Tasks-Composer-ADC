@@ -46,7 +46,7 @@ const config = {
           routeBasePath: '/', // Define a página inicial como a documentação
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/TasksComposer/tasks-composer/edit/main/docs/',
+          editUrl: 'https://github.com/Gincaza/Tasks-Composer-ADC/edit/main/docs/',
         },
         blog: false, // Desativa o blog
         theme: {
@@ -73,7 +73,7 @@ const config = {
             label: 'Visão Geral',
           },
           {
-            href: 'https://github.com/TasksComposer/tasks-composer',
+            href: 'https://github.com/Gincaza/Tasks-Composer-ADC',
             label: 'GitHub',
             position: 'right',
           },
