@@ -15,15 +15,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://tasks-composer.example.com',
+  url: 'https://gincaza.github.io', // URL do GitHub Pages
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Tasks-Composer-ADC/', // Caminho base do repositório
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'TasksComposer', // Usually your GitHub org/user name.
-  projectName: 'tasks-composer', // Usually your repo name.
+  organizationName: 'Gincaza', // Nome do usuário ou organização no GitHub
+  projectName: 'Tasks-Composer-ADC', // Nome do repositório no GitHub
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
