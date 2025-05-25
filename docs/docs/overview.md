@@ -64,7 +64,7 @@ O projeto Tasks Composer está organizado da seguinte forma:
 ### Diretórios Principais
 
 - **`core/`**: Contém a lógica principal da aplicação, incluindo:
-  - **`models.py`**: [Define os modelos de dados, como `Task` e `CustomUser`](./models.md).
+   - **`models.py`**: Define os modelos de dados, como `Task` e `CustomUser`. [Saiba mais](./models.md).
   - **`views.md`**: Contém as funções de visualização para lidar com as requisições HTTP. [Saiba mais](./views.md)
   - **`templates/`**: Armazena os templates HTML para renderização das páginas.
   - **`static/`**: Contém arquivos estáticos como CSS, JavaScript e imagens.
