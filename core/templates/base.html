@@ -55,19 +55,12 @@
             </div>
             <div class="d-none d-md-flex align-items-center">
                 {% if user.is_authenticated %}
-                    {% if user.avatar %}
-                        <img src="{{ user.avatar.url }}" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-                    {% else %}
-                        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Avatar" class="rounded-circle me-2"> -->
-                    {% endif %}
-
                     {% if user.name %}
                         <span class="me-3">{{ user.name }}</span>
                     {% else %}
                         <span class="me-3">{{ user.username }}</span>
                     {% endif %}
                 {% else %}
-                    <img src="https://via.placeholder.com/40" alt="Avatar" class="rounded-circle me-2">
                     <span class="me-3">Usuário Mock</span>
                 {% endif %}
                 <a href="/settings/" class="text-white text-decoration-none">
