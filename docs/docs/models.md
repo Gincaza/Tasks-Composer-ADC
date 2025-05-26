@@ -23,6 +23,5 @@ O model `Task` representa uma tarefa no sistema. Ele contém os seguintes campos
 O model `CustomUser` estende o modelo padrão de usuário do Django para incluir:
 
 - `name`: O nome completo do usuário.
-- `avatar`: Uma imagem de avatar para o perfil do usuário.
 
 Esses models são usados em várias partes do sistema, como nas [views](./views.md) e templates, para gerenciar e exibir os dados.
