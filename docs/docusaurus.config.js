@@ -18,7 +18,7 @@ const config = {
   url: 'https://gincaza.github.io', // URL do GitHub Pages
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Tasks-Composer-ADC/', // Caminho base do repositório
+  baseUrl: '/', // Caminho base do repositório
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
