@@ -33,6 +33,7 @@ class CustomUserCreationForm(forms.ModelForm):
             user.save()
         return user
 
+@login_required
 def dashboard(request):
     pending_tasks_count = Task.objects.filter(completed=False).count()
     completed_tasks_count = Task.objects.filter(completed=True).count()
@@ -66,12 +67,14 @@ def tasks(request):
     tasks_list = Task.objects.filter(user=request.user)
     return render(request, 'tasks.html', {'tasks': tasks_list})
 
+@login_required
 def delete_task(request, task_id):
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
         task.delete()
         return redirect('tasks')
 
+@login_required
 def mark_task_completed(request, task_id):
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
@@ -81,6 +84,7 @@ def mark_task_completed(request, task_id):
         return JsonResponse({'success': True})
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
+@login_required
 def settings(request):
     return render(request, 'settings.html')
 
