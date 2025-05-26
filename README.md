@@ -27,7 +27,7 @@ Tasks Composer é uma aplicação web desenvolvida para ajudar os usuários a ge
 
 1. Clone o repositório:
    ```bash
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/Gincaza/Tasks-Composer-ADC.git
    ```
 
 2. Navegue até o diretório do projeto:
@@ -57,6 +57,27 @@ Tasks Composer é uma aplicação web desenvolvida para ajudar os usuários a ge
    ```
 
 7. Acesse o projeto no navegador em `http://127.0.0.1:8000/`.
+
+## Documentação
+
+Este projeto inclui uma documentação gerada com o Docusaurus, localizada na pasta `docs/`. Para iniciar o servidor de documentação localmente, execute os seguintes comandos:
+
+1. Navegue até a pasta `docs/`:
+   ```bash
+   cd docs
+   ```
+
+2. Instale as dependências do Docusaurus:
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento do Docusaurus:
+   ```bash
+   npm start
+   ```
+
+4. Acesse a documentação no navegador em `http://localhost:3000/`.
 
 ## Licença
 
