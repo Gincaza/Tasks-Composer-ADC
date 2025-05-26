@@ -16,6 +16,16 @@ Tasks Composer é uma aplicação web desenvolvida para ajudar os usuários a ge
 - **Gerenciamento de informações pessoais**: Atualize seu nome.
 - **Modo claro e escuro**: Alterne entre temas para uma melhor experiência visual.
 
+## Funcionalidades Detalhadas
+
+### Modo Claro e Escuro
+
+O Tasks Composer oferece suporte a um modo claro e escuro para melhorar a experiência visual dos usuários. Para alternar entre os modos, o usuário pode usar o botão disponível na página de configurações.
+
+### Resumo Visual no Dashboard
+
+O dashboard exibe um resumo visual das tarefas pendentes e concluídas usando gráficos interativos. Esses gráficos são gerados com a biblioteca `Chart.js`, proporcionando uma visão clara do progresso do usuário em relação às suas tarefas.
+
 ## Tecnologias Utilizadas
 
 - **Backend**: Django 5.2.1
