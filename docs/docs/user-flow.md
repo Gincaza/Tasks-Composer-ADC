@@ -28,6 +28,6 @@ Este documento descreve o fluxo de navegação que um usuário pode percorrer ma
    - Permite criar, editar, excluir e marcar tarefas como concluídas.
 
 6. **Configurações (`/settings/`)**:
-   - Usuários podem atualizar informações pessoais, como nome e avatar.
+   - Usuários podem atualizar informações pessoais, como nome.
 
 Este fluxo foi projetado para garantir uma navegação intuitiva e eficiente para os usuários.

@@ -7,7 +7,7 @@ Tasks Composer é uma aplicação web desenvolvida para ajudar os usuários a ge
 - **Criação e edição de tarefas**: Adicione tarefas com descrição e data de vencimento.
 - **Marcação de tarefas como concluídas**: Atualize o status das tarefas facilmente.
 - **Resumo visual**: Veja um resumo das tarefas pendentes e concluídas no dashboard.
-- **Gerenciamento de informações pessoais**: Atualize seu nome e avatar.
+- **Gerenciamento de informações pessoais**: Atualize seu nome.
 - **Modo claro e escuro**: Alterne entre temas para uma melhor experiência visual.
 
 ## Tecnologias Utilizadas
