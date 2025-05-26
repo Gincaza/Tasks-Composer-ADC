@@ -18,13 +18,6 @@
             <label for="userName" class="form-label">Nome</label>
             <input type="text" class="form-control" id="userName" name="name" value="{{ user.name }}" required>
         </div>
-        <div class="mb-3">
-            <label for="userAvatar" class="form-label">Avatar</label>
-            <input type="file" class="form-control" id="userAvatar" name="avatar">
-            {% if user.avatar %}
-                <img src="{{ user.avatar.url }}" alt="Avatar Atual" class="img-thumbnail mt-2" style="width: 100px; height: 100px;">
-            {% endif %}
-        </div>
         <button type="submit" class="btn btn-success">Salvar Alterações</button>
     </form>
 </div>

@@ -17,7 +17,7 @@ class CustomUserCreationForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'name', 'avatar']
+        fields = ['username', 'name']
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
@@ -89,8 +89,6 @@ def update_user_info(request):
     if request.method == 'POST':
         user = request.user
         user.name = request.POST.get('name', user.name)
-        if 'avatar' in request.FILES:
-            user.avatar = request.FILES['avatar']
         user.save()
         messages.success(request, 'Informações atualizadas com sucesso!')
         return redirect('settings')
@@ -101,7 +99,7 @@ def home(request):
 
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST, request.FILES)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
