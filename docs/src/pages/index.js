@@ -12,7 +12,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <a
             className="button button--secondary button--lg"
-            href="/overview">
+            href="/Tasks-Composer-ADC/overview">
             Visão Geral do Projeto
           </a>
         </div>
