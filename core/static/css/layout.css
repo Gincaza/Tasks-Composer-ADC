@@ -59,8 +59,8 @@ body.dark-theme {
     color: #ffffff;
 }
 
-body.dark-theme a {
-    color: #bb86fc;
+body.dark-theme a, body.dark-theme .logoff {
+    color: #bb86fc !important;
 }
 
 body.dark-theme .btn {
