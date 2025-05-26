@@ -15,7 +15,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://github.com', // URL do GitHub Pages
+  url: 'https://gincaza.github.io', // URL do GitHub Pages
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Tasks-Composer-ADC/', // Caminho base do repositório
