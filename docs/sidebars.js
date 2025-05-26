@@ -26,6 +26,14 @@ const sidebars = {
       label: 'Funcionalidades',
       items: ['models', 'views', 'user-flow'],
     },
+    {
+      type: 'doc',
+      id: 'tests',
+    },
+    {
+      type: 'doc',
+      id: 'authentication-authorization',
+    }
   ],
 };
 

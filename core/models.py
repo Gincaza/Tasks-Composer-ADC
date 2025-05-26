@@ -14,4 +14,3 @@ class Task(models.Model):
 
 class CustomUser(AbstractUser):
     name = models.CharField(max_length=150, blank=True, null=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)

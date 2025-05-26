@@ -17,7 +17,7 @@ class CustomUserCreationForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'name', 'avatar']
+        fields = ['username', 'name']
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
@@ -33,6 +33,7 @@ class CustomUserCreationForm(forms.ModelForm):
             user.save()
         return user
 
+@login_required
 def dashboard(request):
     pending_tasks_count = Task.objects.filter(completed=False).count()
     completed_tasks_count = Task.objects.filter(completed=True).count()
@@ -66,12 +67,14 @@ def tasks(request):
     tasks_list = Task.objects.filter(user=request.user)
     return render(request, 'tasks.html', {'tasks': tasks_list})
 
+@login_required
 def delete_task(request, task_id):
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
         task.delete()
         return redirect('tasks')
 
+@login_required
 def mark_task_completed(request, task_id):
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
@@ -81,6 +84,7 @@ def mark_task_completed(request, task_id):
         return JsonResponse({'success': True})
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
+@login_required
 def settings(request):
     return render(request, 'settings.html')
 
@@ -89,8 +93,6 @@ def update_user_info(request):
     if request.method == 'POST':
         user = request.user
         user.name = request.POST.get('name', user.name)
-        if 'avatar' in request.FILES:
-            user.avatar = request.FILES['avatar']
         user.save()
         messages.success(request, 'Informações atualizadas com sucesso!')
         return redirect('settings')
@@ -101,7 +103,7 @@ def home(request):
 
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST, request.FILES)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)

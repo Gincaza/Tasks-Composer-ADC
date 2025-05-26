@@ -35,7 +35,7 @@ As **views** no Django são responsáveis por lidar com as requisições e retor
 
 ## Update User Info
 
-- **Descrição**: Permite que o usuário atualize suas informações, como nome e avatar.
+- **Descrição**: Permite que o usuário atualize suas informações, como nome.
 - **Caminho**: `/settings/update_user_info/`
 
 ## Home
