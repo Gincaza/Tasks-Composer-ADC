@@ -24,13 +24,11 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Gincaza', // Nome do usuário ou organização no GitHub
   projectName: 'Tasks-Composer-ADC', // Nome do repositório no GitHub
+  deploymentBranch: 'gh-pages', // <<< Adicionado aqui
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt'],
@@ -44,11 +42,9 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/', // Define a página inicial como a documentação
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/Gincaza/Tasks-Composer-ADC/edit/main/docs/',
         },
-        blog: false, // Desativa o blog
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
