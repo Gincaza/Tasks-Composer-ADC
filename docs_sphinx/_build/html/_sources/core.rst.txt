@@ -1,0 +1,42 @@
+core package
+============
+
+core.admin module
+-----------------
+
+.. automodule:: core.admin
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+core.apps module
+----------------
+
+.. automodule:: core.apps
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+core.models module
+------------------
+
+.. automodule:: core.models
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+core.tests module
+-----------------
+
+.. automodule:: core.tests
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+core.views module
+-----------------
+
+.. automodule:: core.views
+   :members:
+   :show-inheritance:
+   :undoc-members:
