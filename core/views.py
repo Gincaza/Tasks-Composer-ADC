@@ -47,6 +47,15 @@ def dashboard(request):
 @login_required
 @csrf_exempt
 def tasks(request):
+    """
+    Cria, edita e lista tarefas do usuário autenticado.
+
+    Args:
+        request (HttpRequest): Requisição HTTP.
+
+    Returns:
+        HttpResponse: Página de tarefas renderizada ou redirecionamento após POST.
+    """
     if request.method == 'POST':
         task_id = request.POST.get('task_id')
         title = request.POST.get('title')
@@ -69,6 +78,16 @@ def tasks(request):
 
 @login_required
 def delete_task(request, task_id):
+    """
+    Exclui uma tarefa específica do usuário.
+
+    Args:
+        request (HttpRequest): Requisição HTTP.
+        task_id (int): ID da tarefa a ser excluída.
+
+    Returns:
+        HttpResponse: Redirecionamento para a lista de tarefas após exclusão.
+    """
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
         task.delete()
@@ -90,6 +109,15 @@ def settings(request):
 
 @login_required
 def update_user_info(request):
+    """
+    Atualiza as informações do usuário autenticado.
+
+    Args:
+        request (HttpRequest): Requisição HTTP.
+
+    Returns:
+        HttpResponse: Redirecionamento para configurações após atualização ou requisição GET.
+    """
     if request.method == 'POST':
         user = request.user
         user.name = request.POST.get('name', user.name)
@@ -99,9 +127,27 @@ def update_user_info(request):
     return redirect('settings')
 
 def home(request):
+    """
+    Exibe a página inicial para visitantes.
+
+    Args:
+        request (HttpRequest): Requisição HTTP.
+
+    Returns:
+        HttpResponse: Página inicial renderizada.
+    """
     return render(request, 'home.html', {'base_template': 'visitor_base.html'})
 
 def register(request):
+    """
+    Registra um novo usuário no sistema.
+
+    Args:
+        request (HttpRequest): Requisição HTTP.
+
+    Returns:
+        HttpResponse: Página de registro renderizada ou redirecionamento após registro bem-sucedido.
+    """
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
