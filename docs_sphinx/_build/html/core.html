@@ -1,0 +1,971 @@
+<!doctype html>
+<html class="no-js" lang="pt" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="genindex.html" /><link rel="search" title="Pesquisar" href="search.html" /><link rel="prev" title="core" href="modules.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>core package - Documentação Task-Composer 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Documentação Task-Composer 1.0.0</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Documentação Task-Composer 1.0.0</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">core</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of core</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">core package</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/core.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="core-package">
+<h1>core package<a class="headerlink" href="#core-package" title="Link to this heading">¶</a></h1>
+<section id="module-core.admin">
+<span id="core-admin-module"></span><h2>core.admin module<a class="headerlink" href="#module-core.admin" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-core.apps">
+<span id="core-apps-module"></span><h2>core.apps module<a class="headerlink" href="#module-core.apps" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.apps.CoreConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.apps.</span></span><span class="sig-name descname"><span class="pre">CoreConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.apps.CoreConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.apps.CoreConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#core.apps.CoreConfig.default_auto_field" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.apps.CoreConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'core'</span></em><a class="headerlink" href="#core.apps.CoreConfig.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.models">
+<span id="core-models-module"></span><h2>core.models module<a class="headerlink" href="#module-core.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.models.CustomUser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.models.</span></span><span class="sig-name descname"><span class="pre">CustomUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.CustomUser" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractUser</span></code></p>
+<p>Modelo de usuário customizado que estende o AbstractUser do Django.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#core.models.CustomUser.name" title="Link to this definition">¶</a></dt>
+<dd><p>Nome completo do usuário (opcional).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.models.CustomUser.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#core.models.CustomUser.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.models.CustomUser.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#core.models.CustomUser.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.date_joined">
+<span class="sig-name descname"><span class="pre">date_joined</span></span><a class="headerlink" href="#core.models.CustomUser.date_joined" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#core.models.CustomUser.email" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.first_name">
+<span class="sig-name descname"><span class="pre">first_name</span></span><a class="headerlink" href="#core.models.CustomUser.first_name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.models.CustomUser.get_next_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_next_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.CustomUser.get_next_by_date_joined" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.models.CustomUser.get_previous_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_previous_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.CustomUser.get_previous_by_date_joined" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.groups">
+<span class="sig-name descname"><span class="pre">groups</span></span><a class="headerlink" href="#core.models.CustomUser.groups" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#core.models.CustomUser.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#core.models.CustomUser.is_active" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.is_staff">
+<span class="sig-name descname"><span class="pre">is_staff</span></span><a class="headerlink" href="#core.models.CustomUser.is_staff" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.is_superuser">
+<span class="sig-name descname"><span class="pre">is_superuser</span></span><a class="headerlink" href="#core.models.CustomUser.is_superuser" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.last_login">
+<span class="sig-name descname"><span class="pre">last_login</span></span><a class="headerlink" href="#core.models.CustomUser.last_login" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.last_name">
+<span class="sig-name descname"><span class="pre">last_name</span></span><a class="headerlink" href="#core.models.CustomUser.last_name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.logentry_set">
+<span class="sig-name descname"><span class="pre">logentry_set</span></span><a class="headerlink" href="#core.models.CustomUser.logentry_set" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#core.models.CustomUser.password" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.tasks">
+<span class="sig-name descname"><span class="pre">tasks</span></span><a class="headerlink" href="#core.models.CustomUser.tasks" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.user_permissions">
+<span class="sig-name descname"><span class="pre">user_permissions</span></span><a class="headerlink" href="#core.models.CustomUser.user_permissions" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.CustomUser.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#core.models.CustomUser.username" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.models.Task">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.models.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.Task" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Modelo que representa uma tarefa atribuída a um usuário.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#core.models.Task.title" title="Link to this definition">¶</a></dt>
+<dd><p>Título da tarefa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#core.models.Task.description" title="Link to this definition">¶</a></dt>
+<dd><p>Descrição detalhada da tarefa (opcional).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.due_date">
+<span class="sig-name descname"><span class="pre">due_date</span></span><a class="headerlink" href="#core.models.Task.due_date" title="Link to this definition">¶</a></dt>
+<dd><p>Data de vencimento da tarefa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.completed">
+<span class="sig-name descname"><span class="pre">completed</span></span><a class="headerlink" href="#core.models.Task.completed" title="Link to this definition">¶</a></dt>
+<dd><p>Indica se a tarefa foi concluída.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#core.models.Task.user" title="Link to this definition">¶</a></dt>
+<dd><p>Usuário ao qual a tarefa pertence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#core.models.CustomUser" title="core.models.CustomUser">CustomUser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.models.Task.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#core.models.Task.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="core.models.Task.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#core.models.Task.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">completed</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">due_date</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.models.Task.get_next_by_due_date">
+<span class="sig-name descname"><span class="pre">get_next_by_due_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">due_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.Task.get_next_by_due_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.models.Task.get_previous_by_due_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_due_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">due_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.models.Task.get_previous_by_due_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#core.models.Task.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#core.models.Task.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.models.Task.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#core.models.Task.user_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.tests">
+<span id="core-tests-module"></span><h2>core.tests module<a class="headerlink" href="#module-core.tests" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.tests.</span></span><span class="sig-name descname"><span class="pre">CoreViewsTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testes para as views principais do app core.</p>
+<p>Esta classe cobre testes das páginas principais e do comportamento de autenticação.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.setUp" title="Link to this definition">¶</a></dt>
+<dd><p>Configura o client de teste para cada teste.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.test_dashboard_page_authenticated">
+<span class="sig-name descname"><span class="pre">test_dashboard_page_authenticated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.test_dashboard_page_authenticated" title="Link to this definition">¶</a></dt>
+<dd><p>Testa se usuários autenticados conseguem acessar o dashboard normalmente.</p>
+<p>Cria um usuário de teste, faz login e verifica se o dashboard é acessível.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.test_dashboard_page_redirect_for_unauthenticated">
+<span class="sig-name descname"><span class="pre">test_dashboard_page_redirect_for_unauthenticated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.test_dashboard_page_redirect_for_unauthenticated" title="Link to this definition">¶</a></dt>
+<dd><p>Testa se um usuário não autenticado é redirecionado ao acessar o dashboard.</p>
+<p>O usuário deve ser redirecionado para a página de login.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.test_home_page">
+<span class="sig-name descname"><span class="pre">test_home_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.test_home_page" title="Link to this definition">¶</a></dt>
+<dd><p>Testa se a página inicial (“home”) carrega corretamente.</p>
+<p>Verifica se o status HTTP é 200 e se o template correto é utilizado.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.test_login_page">
+<span class="sig-name descname"><span class="pre">test_login_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.test_login_page" title="Link to this definition">¶</a></dt>
+<dd><p>Testa se a página de login carrega corretamente.</p>
+<p>Verifica se o status HTTP é 200 e se o template correto é utilizado.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.tests.CoreViewsTestCase.test_register_page">
+<span class="sig-name descname"><span class="pre">test_register_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.tests.CoreViewsTestCase.test_register_page" title="Link to this definition">¶</a></dt>
+<dd><p>Testa se a página de registro carrega corretamente.</p>
+<p>Verifica se o status HTTP é 200 e se o template correto é utilizado.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.views">
+<span id="core-views-module"></span><h2>core.views module<a class="headerlink" href="#module-core.views" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">CustomUserCreationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.CustomUserCreationForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#core.views.CustomUserCreationForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'name']</span></em><a class="headerlink" href="#core.views.CustomUserCreationForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#core.views.CustomUserCreationForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#core.models.CustomUser" title="core.models.CustomUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#core.views.CustomUserCreationForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.clean_password2">
+<span class="sig-name descname"><span class="pre">clean_password2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.views.CustomUserCreationForm.clean_password2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#core.views.CustomUserCreationForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.media">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#core.views.CustomUserCreationForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="core.views.CustomUserCreationForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.CustomUserCreationForm.save" title="Link to this definition">¶</a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.dashboard">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.dashboard" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.delete_task">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">delete_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.delete_task" title="Link to this definition">¶</a></dt>
+<dd><p>Exclui uma tarefa específica do usuário.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Requisição HTTP.</p></li>
+<li><p><strong>task_id</strong> (<em>int</em>) – ID da tarefa a ser excluída.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirecionamento para a lista de tarefas após exclusão.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.home">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.home" title="Link to this definition">¶</a></dt>
+<dd><p>Exibe a página inicial para visitantes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Requisição HTTP.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Página inicial renderizada.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.mark_task_completed">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">mark_task_completed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.mark_task_completed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.register">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.register" title="Link to this definition">¶</a></dt>
+<dd><p>Registra um novo usuário no sistema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Requisição HTTP.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Página de registro renderizada ou redirecionamento após registro bem-sucedido.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.settings">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.settings" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.tasks">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.tasks" title="Link to this definition">¶</a></dt>
+<dd><p>Cria, edita e lista tarefas do usuário autenticado.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Requisição HTTP.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Página de tarefas renderizada ou redirecionamento após POST.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="core.views.update_user_info">
+<span class="sig-prename descclassname"><span class="pre">core.views.</span></span><span class="sig-name descname"><span class="pre">update_user_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.update_user_info" title="Link to this definition">¶</a></dt>
+<dd><p>Atualiza as informações do usuário autenticado.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Requisição HTTP.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirecionamento para configurações após atualização ou requisição GET.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">core</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Gustavo Cruz
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">core package</a><ul>
+<li><a class="reference internal" href="#module-core.admin">core.admin module</a></li>
+<li><a class="reference internal" href="#module-core.apps">core.apps module</a><ul>
+<li><a class="reference internal" href="#core.apps.CoreConfig"><code class="docutils literal notranslate"><span class="pre">CoreConfig</span></code></a><ul>
+<li><a class="reference internal" href="#core.apps.CoreConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">CoreConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#core.apps.CoreConfig.name"><code class="docutils literal notranslate"><span class="pre">CoreConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-core.models">core.models module</a><ul>
+<li><a class="reference internal" href="#core.models.CustomUser"><code class="docutils literal notranslate"><span class="pre">CustomUser</span></code></a><ul>
+<li><a class="reference internal" href="#core.models.CustomUser.name"><code class="docutils literal notranslate"><span class="pre">CustomUser.name</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">CustomUser.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">CustomUser.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.date_joined"><code class="docutils literal notranslate"><span class="pre">CustomUser.date_joined</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.email"><code class="docutils literal notranslate"><span class="pre">CustomUser.email</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.first_name"><code class="docutils literal notranslate"><span class="pre">CustomUser.first_name</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.get_next_by_date_joined"><code class="docutils literal notranslate"><span class="pre">CustomUser.get_next_by_date_joined()</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.get_previous_by_date_joined"><code class="docutils literal notranslate"><span class="pre">CustomUser.get_previous_by_date_joined()</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.groups"><code class="docutils literal notranslate"><span class="pre">CustomUser.groups</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.id"><code class="docutils literal notranslate"><span class="pre">CustomUser.id</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.is_active"><code class="docutils literal notranslate"><span class="pre">CustomUser.is_active</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.is_staff"><code class="docutils literal notranslate"><span class="pre">CustomUser.is_staff</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.is_superuser"><code class="docutils literal notranslate"><span class="pre">CustomUser.is_superuser</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.last_login"><code class="docutils literal notranslate"><span class="pre">CustomUser.last_login</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.last_name"><code class="docutils literal notranslate"><span class="pre">CustomUser.last_name</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.logentry_set"><code class="docutils literal notranslate"><span class="pre">CustomUser.logentry_set</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">CustomUser.name</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.password"><code class="docutils literal notranslate"><span class="pre">CustomUser.password</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.tasks"><code class="docutils literal notranslate"><span class="pre">CustomUser.tasks</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.user_permissions"><code class="docutils literal notranslate"><span class="pre">CustomUser.user_permissions</span></code></a></li>
+<li><a class="reference internal" href="#core.models.CustomUser.username"><code class="docutils literal notranslate"><span class="pre">CustomUser.username</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core.models.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
+<li><a class="reference internal" href="#core.models.Task.title"><code class="docutils literal notranslate"><span class="pre">Task.title</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.description"><code class="docutils literal notranslate"><span class="pre">Task.description</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.due_date"><code class="docutils literal notranslate"><span class="pre">Task.due_date</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.completed"><code class="docutils literal notranslate"><span class="pre">Task.completed</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.user"><code class="docutils literal notranslate"><span class="pre">Task.user</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Task.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Task.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Task.completed</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Task.description</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Task.due_date</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.get_next_by_due_date"><code class="docutils literal notranslate"><span class="pre">Task.get_next_by_due_date()</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.get_previous_by_due_date"><code class="docutils literal notranslate"><span class="pre">Task.get_previous_by_due_date()</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.id"><code class="docutils literal notranslate"><span class="pre">Task.id</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.objects"><code class="docutils literal notranslate"><span class="pre">Task.objects</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Task.title</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Task.user</span></code></a></li>
+<li><a class="reference internal" href="#core.models.Task.user_id"><code class="docutils literal notranslate"><span class="pre">Task.user_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-core.tests">core.tests module</a><ul>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.test_dashboard_page_authenticated"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.test_dashboard_page_authenticated()</span></code></a></li>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.test_dashboard_page_redirect_for_unauthenticated"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.test_dashboard_page_redirect_for_unauthenticated()</span></code></a></li>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.test_home_page"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.test_home_page()</span></code></a></li>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.test_login_page"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.test_login_page()</span></code></a></li>
+<li><a class="reference internal" href="#core.tests.CoreViewsTestCase.test_register_page"><code class="docutils literal notranslate"><span class="pre">CoreViewsTestCase.test_register_page()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-core.views">core.views module</a><ul>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm</span></code></a><ul>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.Meta"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.base_fields"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.clean_password2"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.clean_password2()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.media"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.media</span></code></a></li>
+<li><a class="reference internal" href="#core.views.CustomUserCreationForm.save"><code class="docutils literal notranslate"><span class="pre">CustomUserCreationForm.save()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core.views.dashboard"><code class="docutils literal notranslate"><span class="pre">dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.delete_task"><code class="docutils literal notranslate"><span class="pre">delete_task()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.mark_task_completed"><code class="docutils literal notranslate"><span class="pre">mark_task_completed()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.settings"><code class="docutils literal notranslate"><span class="pre">settings()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.tasks"><code class="docutils literal notranslate"><span class="pre">tasks()</span></code></a></li>
+<li><a class="reference internal" href="#core.views.update_user_info"><code class="docutils literal notranslate"><span class="pre">update_user_info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=c4403577"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/translations.js?v=beaedd51"></script>
+    </body>
+</html>
